@@ -1,4 +1,4 @@
-# PEPMIS Teacher Survey — Analysis README
+# PEPMIS Teacher Survey — Analysis
 
 This repository contains scripts and outputs used to clean, analyse, visualise and report results from a teacher survey about challenges implementing the PEPMIS (primary/education/performance electronic system) in public secondary schools. The work covers data preparation, descriptive statistics, reliability testing (Cronbach’s alpha), construction of a composite Challenge Index, inferential tests (t-test, ANOVA), exploratory factor analysis (EFA), visualisations, and a multivariable regression.
 
@@ -6,7 +6,7 @@ This README describes what was done, which scripts were created, how to run them
 
 ---
 
-## Project overview (plain language)
+## Project overview
 - Input: a CSV export of a teacher questionnaire (Likert-style items + demographics).
 - Goal: understand which PEPMIS challenges are most important, whether items form a cohesive scale, whether groups differ, and to create a single Challenge Index that summarises overall difficulty so it can be used in comparisons and regression.
 - Approach: data cleaning → per-item descriptives → Cronbach’s alpha → Challenge Index → group comparisons (t-test/ANOVA) → EFA → regression → visuals.
@@ -161,23 +161,10 @@ python regression_pepmis.py --interactions
 
 ---
 
-## Recommended next steps
-- Prepare a short one-page report or slide summarising findings and prioritized actions: training, ICT access, system reliability and technical support.
-- If you plan further statistical work, collect more responses to increase power and permit more complex modelling (interactions, CFA).
-- Use the Challenge Index as a monitoring metric: collect follow-up surveys after interventions.
-- Consider qualitative follow-up (short interviews or focus groups) to understand causes and practical constraints in more depth.
-
----
-
 ## Troubleshooting
 - `factor_analyzer` install issues: try `pip install factor_analyzer` (and ensure `numpy`, `scipy`, and `scikit-learn` are up-to-date). If KMO/Bartlett functions are not present in your factor_analyzer version, the `efa_pepmis.py` script computes them internally and will still run EFA if `factor_analyzer` is available.
 - Notebook/Colab argument parsing: scripts use `parse_known_args()` so kernel args won't crash the scripts.
 - If plots or files are not created where expected, check the `INPUT` path and whether the cleaned CSV with index exists.
-
----
-
-## Contact / Attribution
-- Scripts were prepared as part of an analysis workflow for the PEPMIS teacher survey. If you want help running the scripts on your system, adjusting groupings, or producing a short report or slides, say which outputs you want and I can run or generate them.
 
 ---
 
